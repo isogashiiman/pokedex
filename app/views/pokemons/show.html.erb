@@ -1,3 +1,7 @@
 <h1>Afficher un Pokemon </h1>
 
 <p>Nom : <%= @pokemon.name %></p>
+<p>
+	<%= link_to 'Retour à la liste', pokemons_path,
+		class: 'btn btn-default' %> 
+</p>
