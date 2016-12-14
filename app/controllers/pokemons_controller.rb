@@ -2,7 +2,7 @@ class PokemonsController < ApplicationController
 	before_action :set_pokemon, only: [:show, :edit, :update]
 
 	def index
-		@pokemons = Pokemon.all
+		@pokemons = Pokemon.includes(:type)
 	end
 
 	def show

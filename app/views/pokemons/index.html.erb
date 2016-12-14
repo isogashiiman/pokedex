@@ -18,6 +18,13 @@
 				<td><%= pokemon.name %></td>
 				<td><%= pokemon.level %></td>
 				<td><%= pokemon.health_points %></td>
+				<td>
+					<% if pokemon.type.nil? %>
+					&empty
+					<% else %>
+						<%= type_badge(pokemon.type.name,  pokemon.type.color) %>
+					<% end %>					
+				</td>
 
 				<!--<td><%= link_to 'Afficher', pokemon_path(pokemon.id) %></td> -->
 				<td><% link_to 'Afficher', pokemon, class: 'btn btn-info'%>
