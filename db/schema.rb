@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118085721) do
+ActiveRecord::Schema.define(version: 20161123153711) do
 
   create_table "pokemons", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "number"
+    t.integer "level"
+    t.integer "health_points"
+    t.integer "type_id"
+    t.index ["type_id"], name: "index_pokemons_on_type_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -5,15 +5,39 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<td>Numéro</td>
 				<td>Nom</td>
+				<td>Niveau</td>
 				<td>Actions</td>
 			</tr>
 		</thead>
 		<tbody>	
 			<% @pokemons.each do |pokemon| %>
 			<tr>
+				<td><%= pokemon.number %></td>
 				<td><%= pokemon.name %></td>
-				<td><%= link_to 'Afficher', pokemon_path(pokemon.id) %></td>
+				<td><%= pokemon.level %></td>
+				<td><%= pokemon.health_points %></td>
+
+				<!--<td><%= link_to 'Afficher', pokemon_path(pokemon.id) %></td> -->
+				<td><% link_to 'Afficher', pokemon, class: 'btn btn-info'%>
+				<% link_to 'Editer', edit_pokemon_path(pokemon), class: 'btn btn-warning'%></td>
+				<td> 
+					<p>	
+						<%= link_to 'Ajouter un Pokemon', new_pokemon_path, class: 'btn btn-success'%>
+					</p>
+					<p>	
+						<%= link_to 'Modifier', edit_pokemon_path(pokemon), class: 'btn btn-warning'%>
+					</p>
+					<p>
+						<%= link_to 'Supprimer', pokemon,
+						method: :delete,
+						data: {
+							confirm: 'Êtes vous sûr(e) de vouloir supprimer ce Pokemon ?'
+						},
+						class: 'btn btn-danger' %>
+					</p>
+					</td>
 			</tr>
 			<% end %>
 		</tbody>

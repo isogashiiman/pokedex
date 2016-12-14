@@ -2,6 +2,8 @@
 
 <p>Nom : <%= @pokemon.name %></p>
 <p>
-	<%= link_to 'Retour à la liste', pokemons_path,
-		class: 'btn btn-default' %> 
+	<%= link_to 'Editer', edit_pokemon_path(@pokemon), class: 'btn btn-warning' %> 
+</p>
+<p>
+	<%= link_to 'Retour à la liste des Pokemons' , pokemons_path, class: 'btn btn-success' %>
 </p>
