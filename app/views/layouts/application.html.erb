@@ -13,6 +13,16 @@
   </head>
 
   <body>
+  <header>
+  	<p>
+  		<%= link_to "Liste des Pokemons", pokemons_path,
+  		class: 'btn-default' %>
+  		<%= link_to "Liste des Types", types_path,
+  		class: 'btn-default' %>
+  		<%= link_to "Liste des Attaques", moves_path,
+  		class: 'btn-default' %>
+  	</p>
+  </header>
 	  <div class="container">
 	    <%= yield %>
 	   </div>
