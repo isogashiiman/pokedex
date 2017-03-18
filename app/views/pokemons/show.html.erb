@@ -1,16 +1,26 @@
 <h1>Afficher un Pokemon </h1>
 
+<% if @pokemon.avatar.exists? %>
+	<div style="text-align:center;">
+		<%=image_tag @pokemon.avatar.url(:medium) %>
+	</div>
+<% end %>
+
 <p>Nom : <%= @pokemon.name %></p>
 <p>Numéro : <%= @pokemon.number %></p>
 <p>Niveau : <%= @pokemon.level %></p>
 <p>Points de vie : <%= @pokemon.health_points %> </p>
 
+
 <p>
-	<% if @pokemon.type.nil? %>
-	non défini.
-	<% else %>
-		<%= type_badge(@pokemon.type.name,  @pokemon.type.color) %>
-	<% end %>
+	Type :
+		<%= type_badge(@pokemon.type) %>
+<p>
+
+</p>
+<p>
+	<h2> Liste d'attaques : </h2>
+	<% render partial: 'moves/moves_list', locals: { moves: @pokemon.moves } %>
 
 </p>
 <p>

@@ -17,6 +17,7 @@ class PokemonsController < ApplicationController
 	def create
 		@pokemon = Pokemon.new pokemon_params
 		if @pokemon.save
+			flash[:success] = "Le Pokemon #{@pokemon.name} a bien été enregistré."
 			redirect_to @pokemon
 		else
 			render 'new'
@@ -45,6 +46,6 @@ class PokemonsController < ApplicationController
 		@pokemon = Pokemon.find params[:id]
 	end
 	def pokemon_params
-		params.require(:pokemon).permit(:name, :number, :level, :health_points, :type_id)
+		params.require(:pokemon).permit(:name, :number, :level, :health_points, :avatar, :type_id, move_ids: [])
 	end
 end

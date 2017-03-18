@@ -1,13 +1,15 @@
 <h1>Liste des Pokemons</h1>
 
-<% if @pokemons.any? %>
+
 
 	<table class="table">
 		<thead>
 			<tr>
 				<td>Numéro</td>
+				<td>Avatar</td>
 				<td>Nom</td>
 				<td>Niveau</td>
+				<td>Attaques</td>
 				<td>Actions</td>
 			</tr>
 		</thead>
@@ -15,15 +17,19 @@
 			<% @pokemons.each do |pokemon| %>
 			<tr>
 				<td><%= pokemon.number %></td>
+				<% if @pokemons.any? %>
 				<td><%= pokemon.name %></td>
 				<td><%= pokemon.level %></td>
 				<td><%= pokemon.health_points %></td>
 				<td>
 					<% if pokemon.type.nil? %>
-					&empty
+					&empty;
 					<% else %>
-						<%= type_badge(pokemon.type.name,  pokemon.type.color) %>
+						<%= type_badge(pokemon.type) %>
 					<% end %>					
+				</td>
+				<td>
+					<% render partial: 'moves/moves_list', locals: {moves: pokemon.moves } %>
 				</td>
 
 				<!--<td><%= link_to 'Afficher', pokemon_path(pokemon.id) %></td> -->

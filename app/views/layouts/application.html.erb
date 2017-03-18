@@ -23,6 +23,13 @@
   		class: 'btn-default' %>
   	</p>
   </header>
+
+  		<% flash.each do |name, msg| %>
+  		<div class="alert alert.class(name) %>">
+  			<a class="close" data-dismiss="alert">X</a>
+  			<%= content_tag :div, msg, id:"flash_#{name}" %>
+  		</div>
+
 	  <div class="container">
 	    <%= yield %>
 	   </div>

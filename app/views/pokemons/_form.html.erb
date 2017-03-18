@@ -22,6 +22,10 @@
 				<%= f.association :type, label: 'Type' , class:'form-control' %>
 			</div>
 
+			<div class="form-group col-lg-5">
+				<%= f.association :moves, label: 'Attaques' , as: :check_boxes, item_wrapper_tag: :label, item_wrapper_class:'checkbox-inline' %>
+			</div>
+
 		</div>	
 				<%= f.submit  'Ajouter', class: 'btn btn-primary' %>
 			
